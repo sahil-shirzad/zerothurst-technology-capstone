@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zerothurst SecureTrack</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #07111f, #102a43);
+      color: white;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 25px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+      transform: perspective(1000px) rotateX(4deg);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      background: rgba(56,189,248,0.2);
+    }
+
+    .status {
+      padding: 8px 14px;
+      border-radius: 20px;
+      display: inline-block;
+      background: #facc15;
+      color: black;
+      font-weight: bold;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 14px 25px;
+      background: #38bdf8;
+      color: #07111f;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="hero">
+      <h1>Zerothurst SecureTrack</h1>
+      <p>Cloud-based cybersecurity incident tracking dashboard</p>
+      <button class="btn">Report New Incident</button>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h2>Phishing Email</h2>
+        <p>User reported suspicious email with malicious link.</p>
+        <span class="status">Open</span>
+      </div>
+
+      <div class="card">
+        <h2>Suspicious Login</h2>
+        <p>Multiple failed login attempts detected from unknown IP.</p>
+        <span class="status">Investigating</span>
+      </div>
+
+      <div class="card">
+        <h2>Malware Alert</h2>
+        <p>Endpoint protection detected possible malware activity.</p>
+        <span class="status">High Priority</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
