@@ -26,6 +26,18 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init
+      - name: Terraform Init Infrastructure
         working-directory: terraform/infrastructure
         run: terraform init
+
+      - name: Terraform Plan Infrastructure
+        working-directory: terraform/infrastructure
+        run: terraform plan -var="project_id=${{ vars.TF_VAR_PROJECT_ID }}"
+
+      - name: Terraform Init App
+        working-directory: terraform/app
+        run: terraform init
+
+      - name: Terraform Plan App
+        working-directory: terraform/app
+        run: terraform plan -var="project_id=${{ vars.TF_VAR_PROJECT_ID }}" -var="container_image=us-docker.pkg.dev/cloudrun/container/hello"
