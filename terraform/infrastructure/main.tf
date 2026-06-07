@@ -22,6 +22,13 @@ resource "google_sql_database_instance" "postgres" {
   }
 }
 
+# Database
+
+resource "google_sql_database" "securetrack_db" {
+  name     = "securetrack"
+  instance = google_sql_database_instance.postgres.name
+}
+
 # Secret Manager
 
 resource "google_secret_manager_secret" "db_password" {
@@ -30,4 +37,11 @@ resource "google_secret_manager_secret" "db_password" {
   replication {
     auto {}
   }
+}
+
+# Secret Value
+
+resource "google_secret_manager_secret_version" "db_password_value" {
+  secret      = google_secret_manager_secret.db_password.id
+  secret_data = "ChangeMe123!"
 }
