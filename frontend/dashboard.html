@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SecureTrack Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#07111f;
+color:white;
+}
+
+.sidebar{
+position:fixed;
+width:220px;
+height:100vh;
+background:#0b1f35;
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+color:#38bdf8;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#123456;
+}
+
+.main{
+margin-left:240px;
+padding:20px;
+}
+
+.cards{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#102a43;
+padding:20px;
+border-radius:15px;
+width:220px;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.number{
+font-size:32px;
+font-weight:bold;
+color:#38bdf8;
+}
+
+.table{
+margin-top:30px;
+background:#102a43;
+padding:20px;
+border-radius:15px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #334155;
+}
+
+th{
+color:#38bdf8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>SecureTrack</h2>
+
+<a href="#">Dashboard</a>
+<a href="#">Incidents</a>
+<a href="#">Reports</a>
+<a href="#">Users</a>
+<a href="#">Settings</a>
+
+</div>
+
+<div class="main">
+
+<h1>Cybersecurity Incident Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Incidents</h3>
+<div class="number">152</div>
+</div>
+
+<div class="card">
+<h3>Open Incidents</h3>
+<div class="number">31</div>
+</div>
+
+<div class="card">
+<h3>Critical Alerts</h3>
+<div class="number">7</div>
+</div>
+
+<div class="card">
+<h3>Resolved</h3>
+<div class="number">121</div>
+</div>
+
+</div>
+
+<div class="table">
+
+<h2>Recent Security Events</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Type</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>INC-001</td>
+<td>Phishing</td>
+<td>Open</td>
+</tr>
+
+<tr>
+<td>INC-002</td>
+<td>Malware</td>
+<td>Resolved</td>
+</tr>
+
+<tr>
+<td>INC-003</td>
+<td>Unauthorized Access</td>
+<td>Investigating</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+</html>
