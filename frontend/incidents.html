@@ -33,6 +33,7 @@ button{
     color:white;
     border:none;
     border-radius:5px;
+    cursor:pointer;
 }
 </style>
 </head>
@@ -42,37 +43,56 @@ button{
 <h1>Incident Management</h1>
 
 <table>
+<thead>
 <tr>
-<th>Incident ID</th>
-<th>Type</th>
+<th>ID</th>
+<th>Title</th>
 <th>Severity</th>
 <th>Status</th>
 </tr>
+</thead>
 
-<tr>
-<td>INC-001</td>
-<td>Phishing</td>
-<td>High</td>
-<td>Open</td>
-</tr>
-
-<tr>
-<td>INC-002</td>
-<td>Malware</td>
-<td>Critical</td>
-<td>Investigating</td>
-</tr>
-
-<tr>
-<td>INC-003</td>
-<td>Unauthorized Access</td>
-<td>Medium</td>
-<td>Resolved</td>
-</tr>
+<tbody id="incidentTable">
+</tbody>
 
 </table>
 
-<button>Add Incident</button>
+<button onclick="loadIncidents()">Refresh Incidents</button>
+
+<script>
+async function loadIncidents() {
+
+    try {
+
+        const response = await fetch("http://localhost:8080/incidents");
+        const incidents = await response.json();
+
+        let rows = "";
+
+        incidents.forEach(incident => {
+
+            rows += `
+            <tr>
+                <td>${incident.id}</td>
+                <td>${incident.title}</td>
+                <td>${incident.severity}</td>
+                <td>${incident.status}</td>
+            </tr>
+            `;
+
+        });
+
+        document.getElementById("incidentTable").innerHTML = rows;
+
+    } catch(error) {
+
+        console.error(error);
+
+    }
+}
+
+loadIncidents();
+</script>
 
 </body>
 </html>
