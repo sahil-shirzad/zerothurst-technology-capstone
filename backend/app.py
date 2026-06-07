@@ -6,13 +6,18 @@ app = Flask(__name__)
 CORS(app)
 
 incidents = [
-    {"id": 1, "title": "Phishing Email", "status": "Open"},
-    {"id": 2, "title": "Suspicious Login", "status": "Investigating"}
+    {"id": 1, "title": "Phishing Email", "severity": "High", "status": "Open"},
+    {"id": 2, "title": "Suspicious Login", "severity": "Medium", "status": "Investigating"},
+    {"id": 3, "title": "Malware Alert", "severity": "Critical", "status": "Open"}
 ]
 
 @app.route("/")
 def home():
     return jsonify({"message": "Zerothurst SecureTrack API is running"})
+
+@app.route("/health")
+def health():
+    return jsonify({"status": "healthy"})
 
 @app.route("/incidents", methods=["GET"])
 def get_incidents():
@@ -21,11 +26,14 @@ def get_incidents():
 @app.route("/incidents", methods=["POST"])
 def add_incident():
     data = request.get_json()
+
     new_incident = {
         "id": len(incidents) + 1,
         "title": data.get("title", "Untitled Incident"),
+        "severity": data.get("severity", "Medium"),
         "status": data.get("status", "Open")
     }
+
     incidents.append(new_incident)
     return jsonify(new_incident), 201
 
